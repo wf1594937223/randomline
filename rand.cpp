@@ -1,7 +1,11 @@
 # include <stdio.h>
+# include <random>
+# include <time.h>
 # define ull unsigned long long
+# define longran() ((ran()<<32)^ran())
 FILE *fr,*fw;
 char s[110],lin[110]="rl",pos=1;
+ull a[6];
 ull transz()
 {
 	int i,j;
@@ -52,6 +56,8 @@ int read()
 {
 	ull val=0;
 	char ch=fgetc(fr);
+	if(ch==EOF)
+		return -1;
 	while(ch<'0' || ch>'9')
 		ch=fgetc(fr);
 	while(ch>='0' && ch<='9')
@@ -61,7 +67,7 @@ int read()
 	}
 	return val;
 }
-void write(int x)
+void write(ull x)
 {
 	if(x<10)
 		fputc(x+48,fw);
@@ -86,14 +92,32 @@ ull qpow(ull x,ull y)
 }
 int main()
 {
+	std::mt19937 ran(time(0));
 	int i,j,n,m;
-	ull cun;
+	ull cun,x;
 	fr=fopen("rem.in","r");
 	m=read();
 	fclose(fr);
 	fw=fopen("rem.in","w");
 	write(m+1);
 	fclose(fw);
+	if(m==-1)
+	{
+		cun=longran();
+		transf(cun,9);
+		fw=fopen("rl0.out","w");
+		for(i=0;i<10;i++)
+			fputc(s[i],fw);
+		fclose(fw);
+		fw=fopen("ints.in","w");
+		for(i=1;i<=6;i++)
+		{
+			x=ran()&(((ull)1<<32)-1);
+			write(x);
+			fputc('\n',fw);
+		}
+		return 0;
+	}
 	comprem(m);
 	lin[++pos]='.';
 	lin[++pos]='o';
@@ -111,13 +135,18 @@ int main()
 	lin[++pos]='u';
 	lin[++pos]='t';
 	const char *zsw=lin;
-	cun|=19491001;
-	cun/=2696059140;
-	cun*=1594937223;
+	fr=fopen("ints.in","r");
+	for(i=0;i<=5;i++)
+		a[i]=read();
+	fclose(fr);
+	cun|=a[0];
+	cun/=a[1];
+	cun*=a[2];
+	cun^=(ull)(a[3]<<32);
+	cun^=(ull)(a[4]);
 	cun<<=1;
-	cun^=(ull)((ull)19174956786<<30);
-	cun^=(ull)((ull)15874918896);
-	cun+=qpow((ull)2544307,cun);
+	cun|=1;
+	cun+=qpow(a[5],cun);
 	cun&=(((ull)1<<60)-1);
 	fw=fopen(zsw,"w");
 	transf(cun,9);
