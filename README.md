@@ -22,3 +22,11 @@ then compile it and run is enough.
 你可以将rl0.out设置成你自己喜欢的一个字符串——但是只能包含上面给出的那些字符；
 
 然后你编译运行它就可以了。
+
+complete in 9.1;
+
+update in 9.2:you can see the line you made before
+
+于9.1初步完成此项目；
+
+9.2更新：你可以查看您之前生成的字符串；
