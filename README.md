@@ -3,7 +3,7 @@ give you an random line(contains '0'~'9','A'-'Z','a'-'z','+','-') quickly and co
 
 为你快速、便捷地生成一个包含'0'~'9','A'-'Z','a'-'z','+','-'的随机串
 
-## how to use
+## how to use（如何使用）
 
 English:
 
