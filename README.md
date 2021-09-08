@@ -29,7 +29,7 @@ update in 9.2:you can see the line you made before
 
 update in 9.5:you can let rem.in nothing to get a randomline in rl0.out and 6 random integers in ints.in which are the rules to make randomlines
 
-update in 9.8:make the randomline more random
+update in 9.8:make the randomline more random,and you can see the previous version now
 
 于9.1初步完成此项目；
 
@@ -37,4 +37,4 @@ update in 9.8:make the randomline more random
 
 9.5更新：你可以设rem.in为空以获得一个初始串于rl0.out中并随机获得6个将成为您生成随机串规则的数在ints.in中；
 
-9.8更新：使串更随机了一些；
+9.8更新：使串更随机了一些，并且支持了查看先前版本；
