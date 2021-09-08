@@ -146,7 +146,7 @@ int main()
 	cun^=(ull)(a[4]);
 	cun<<=1;
 	cun|=1;
-	cun+=qpow(a[5],cun);
+	cun^=qpow(a[5],cun);
 	cun&=(((ull)1<<60)-1);
 	fw=fopen(zsw,"w");
 	transf(cun,9);
