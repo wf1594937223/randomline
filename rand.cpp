@@ -31,13 +31,13 @@ void transf(ull x,int lef)
 {
 	if(lef)
 		transf(x>>6,lef-1);
-	ull now=(x&63);
+	int now=(x&63);
 	if(now>=0 && now<=9)
 		s[lef]=now+'0';
 	if(now>=10 && now<=35)
 		s[lef]=now-10+'A';
 	if(now>=36 && now<=61)
-		s[lef]=now-35+'a';
+		s[lef]=now-36+'a';
 	if(now==62)
 		s[lef]='-';
 	if(now==63)
@@ -92,17 +92,18 @@ ull qpow(ull x,ull y)
 }
 int main()
 {
-	std::mt19937 ran(time(0));
-	int i,j,n,m;
+	int i,j,n,m,w;
 	ull cun,x;
 	fr=fopen("rem.in","r");
 	m=read();
+	w=m;
 	fclose(fr);
 	fw=fopen("rem.in","w");
 	write(m+1);
 	fclose(fw);
 	if(m==-1)
 	{
+		std::mt19937 ran(time(0));
 		cun=longran();
 		transf(cun,9);
 		fw=fopen("rl0.out","w");
@@ -139,14 +140,13 @@ int main()
 	for(i=0;i<=5;i++)
 		a[i]=read();
 	fclose(fr);
-	cun|=a[0];
-	cun/=a[1];
-	cun*=a[2];
-	cun^=(ull)(a[3]<<32);
-	cun^=(ull)(a[4]);
-	cun<<=1;
-	cun|=1;
-	cun^=qpow(a[5],cun);
+	cun&=(a[0]|a[1]);
+	cun|=(a[0]&a[1]);
+	cun^=(ull)((ull)a[3]<<(ull)32);
+	cun^=(ull)((ull)a[4]);
+	std::mt19937 ran(a[2]^a[5]^(cun&2147483647));
+	for(i=0;i<=(w&3);i++)
+		cun^=longran();
 	cun&=(((ull)1<<60)-1);
 	fw=fopen(zsw,"w");
 	transf(cun,9);
