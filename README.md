@@ -31,6 +31,8 @@ update in 9.5:you can let rem.in nothing to get a randomline in rl0.out and 6 ra
 
 update in 9.8:make the randomline more random,and you can see the previous version now
 
+update in 10.4:fixed a LARGE bug!And now you can get a lot of randomline for once using gtlot!
+
 于9.1初步完成此项目；
 
 9.2更新：你可以查看您之前生成的字符串；
@@ -38,3 +40,5 @@ update in 9.8:make the randomline more random,and you can see the previous versi
 9.5更新：你可以设rem.in为空以获得一个初始串于rl0.out中并随机获得6个将成为您生成随机串规则的数在ints.in中；
 
 9.8更新：使串更随机了一些，并且支持了查看先前版本；
+
+10.4更新：修复了一个大BUG！并且可以一次性生成许多串；
